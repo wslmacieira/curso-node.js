@@ -7,7 +7,7 @@ async function obterPessoas(nome) {
   return response.data;
 }
 
-obterPessoas('r2')
+obterPessoas()
   .then(function (resultado) {
     console.log('resultado', resultado)
   })
