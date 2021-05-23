@@ -20,7 +20,7 @@ async function main() {
       required: true,
     },
   }, {
-    tableName: 'TB_HEROES',
+    tableName: 'tb_heroes',
     freezeTableName: false,
     timestamps: false
   })

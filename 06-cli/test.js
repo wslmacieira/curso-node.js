@@ -14,7 +14,7 @@ const DEFAULT_ITEM_ATUALIZAR = {
   poder: 'energia do anel'
 }
 
-describe('Suite de manipulação de Heoris', () => {
+describe('Suite de manipulação de Herois', () => {
   before(async () => {
     await database.cadastrar(DEFAULT_ITEM_CADASTRAR);
     await database.cadastrar(DEFAULT_ITEM_ATUALIZAR);
