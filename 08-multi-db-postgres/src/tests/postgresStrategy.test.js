@@ -15,7 +15,7 @@ const MOCK_HEROI_ATUALIZAR = {
 describe('Postgres Strategy', function () {
     this.timeout(Infinity);
     this.beforeAll(async function () {
-        // await context.connect()
+        await context.delete()
         await context.create(MOCK_HEROI_ATUALIZAR)
     })
 
@@ -37,7 +37,7 @@ describe('Postgres Strategy', function () {
         assert.deepStrictEqual(result, MOCK_HEROI_CADASTRAR)
     })
 
-    it.only('atualizar', async function() {
+    it('atualizar', async function() {
         const [itemAtualizar] = await context.read({ nome: MOCK_HEROI_ATUALIZAR.nome })
         const novoItem = {
             ...MOCK_HEROI_ATUALIZAR,
@@ -65,6 +65,12 @@ describe('Postgres Strategy', function () {
             dataNascimento: '1998-01-01'
         }
         */
+    })
+
+    it('remover por id', async function() {
+        const [item] = await context.read({})
+        const result = await context.delete(item.id)
+        assert.deepStrictEqual(result, 1)
     })
 
 })
