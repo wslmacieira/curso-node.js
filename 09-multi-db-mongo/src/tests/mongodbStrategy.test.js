@@ -7,10 +7,14 @@ const MOCK_HEROI_CADASTRAR = {
     nome: 'Mulher Maravilha',
     poder: 'Laço'
 }
+const MOCK_HEROI_DEFAULT = {
+    nome: `Homen Aranha-${Date.now()}`,
+    poder: 'Super Teia'
+}
 
 describe('MongoDB Suite de testes', function () {
     this.beforeAll(async () => {
-        // await context.connect()
+    await context.create(MOCK_HEROI_DEFAULT)
     })
 
     it('verificar conexao', async () => {
@@ -19,10 +23,20 @@ describe('MongoDB Suite de testes', function () {
         assert.deepStrictEqual(result, expected)
     })
 
-    it.only('cadastrar', async () => {
+    it('cadastrar', async () => {
         const { nome, poder } = await context.create(MOCK_HEROI_CADASTRAR)
 
         assert.deepStrictEqual({ nome, poder }, MOCK_HEROI_CADASTRAR)
+    })
+
+    it.only('listar', async () => {
+        const [{nome, poder}] = await context.read({ nome: MOCK_HEROI_DEFAULT.nome })
+        const result = {
+            nome,
+            poder
+        }
+        
+        assert.deepStrictEqual(result, MOCK_HEROI_DEFAULT)
     })
 
 })
