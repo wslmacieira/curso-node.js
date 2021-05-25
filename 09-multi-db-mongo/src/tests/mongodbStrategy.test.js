@@ -46,12 +46,18 @@ describe('MongoDB Suite de testes', function () {
         assert.deepStrictEqual(result, MOCK_HEROI_DEFAULT)
     })
 
-    it.only('atualizar', async () => {
+    it('atualizar', async () => {
         const result = await context.update(MOCK_HEROI_ID, {
             nome: 'Pernalonga'
         })
 
         assert.deepStrictEqual(result.nModified, 1)
+    })
+
+    it.only('remover', async () => {
+        const result = await context.delete(MOCK_HEROI_ID)
+
+        assert.deepStrictEqual(result.n, 1)
     })
 
 })

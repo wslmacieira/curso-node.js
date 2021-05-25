@@ -73,6 +73,10 @@ class MongoDB extends ICrud {
     update(id, item) {
         return this._heroes.updateOne({ _id: id }, { $set: item })
     }
+
+    delete(id) {
+        return this._heroes.deleteOne({ _id: id })
+    }
 }
 
 module.exports = MongoDB;
