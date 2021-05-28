@@ -1,2 +1,5 @@
 node_modules
 teste.js
+22-env/config/.env.prod
+.gitignore
+22-env/config/.env.dev

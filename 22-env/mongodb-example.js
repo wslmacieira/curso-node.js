@@ -1,6 +1,6 @@
 // npm i mongoose
 const Mongoose = require('mongoose')
-Mongoose.connect('mongodb://admin:gostack@localhost:27017', {
+Mongoose.connect(String(process.env.MONGODB_URL), {
   useNewUrlParser: true
 }, (error) => {
   if (!error) return;
