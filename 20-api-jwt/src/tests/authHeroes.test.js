@@ -8,7 +8,7 @@ describe('Auth test suit', function () {
         app = await api
     })
 
-    it.only('deve obter um token', async () => {
+    it('deve obter um token', async () => {
         const result = await app.inject({
             method: 'POST',
             url: '/login',
